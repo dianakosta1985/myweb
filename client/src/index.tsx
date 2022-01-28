@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { routerMiddleware } from 'connected-react-router';
-import { createStore, applyMiddleware, compose } from 'redux';
-import { Provider } from 'react-redux'
-import ReduxThunk from 'redux-thunk'
+import { routerMiddleware } from "connected-react-router";
+import { createStore, applyMiddleware, compose } from "redux";
+import { Provider } from "react-redux";
+import ReduxThunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 //import axios from 'axios';
 
 import App from "./App";
 //import config from './config';
-import createRootReducer from './store/reducers';
+import createRootReducer from "./store/reducers";
 
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory } from "history";
 
 //import reportWebVitals from './reportWebVitals';
 
@@ -31,19 +31,15 @@ if (token) {
 export const store = createStore(
   createRootReducer(history),
   compose(
-    applyMiddleware(
-      routerMiddleware(history),
-      ReduxThunk,
-    ),
+    applyMiddleware(routerMiddleware(history), ReduxThunk),
     composeWithDevTools()
   )
 );
 
-
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-        <App />
+      <App />
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")

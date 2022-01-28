@@ -13,7 +13,7 @@ router.route("/get-all").get(async function (req, res) {
    
     dbConnect
       .collection("contacts")
-      .find({}).limit(3)
+      .find({})//.limit(3)
       .toArray(function (err, result) {
         if (err) {
           res.status(400).send("Error fetching listings!");
@@ -45,12 +45,12 @@ router.route("/get-all").get(async function (req, res) {
 
   router.route("/delete-contact").delete(async function (req, res) {
 
-    const contactEmail = req.body;
+    const contact = req.body;
+    console.log("diana" + contact);
     const dbConnect = dbo.getDb();
-    console.log("Diana: " + contactEmail);
     dbConnect
       .collection("contacts")
-      .findOneAndDelete(contactEmail, function (err, result) {
+      .deleteOne(contact, function (err, result) {
         if (err) {
           res.status(400).send("Error fetching listings!");
         } else {

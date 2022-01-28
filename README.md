@@ -1,2 +1,0 @@
-# myweb
-for interviews

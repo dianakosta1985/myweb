@@ -1,5 +1,7 @@
 const { MongoClient } = require("mongodb");
-const connectionString = "mongodb://localhost:27017" //process.env.ATLAS_URI;
+require('dotenv').config();
+
+const connectionString = process.env.MONGO_URI; 
 const client = new MongoClient(connectionString, {
   useNewUrlParser: true,
   useUnifiedTopology: true,

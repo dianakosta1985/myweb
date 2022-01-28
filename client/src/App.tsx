@@ -1,13 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Home from './components/home';
+import {
+  BrowserRouter,
+  Routes, // Just Use Routes instead of "Switch"
+  Route,
+} from "react-router-dom";
+import ContactBook from "./components/ContactBook";
 
 function App() {
+
   return (
-    <div className="App">
-     <Home/>
-    </div>
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<ContactBook />}/>
+      </Routes>
+    </BrowserRouter>
+    </>
   );
 }
 
